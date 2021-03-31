@@ -23,28 +23,20 @@ function computerPlay () {
 
 
 
-
-
- 
-
-
-//Single round function that compares "computerSelection" and "playerSelection" and returns result in a string
-
-function playGame() {
-    i = 5;
-    while (i > 1) {
-        playRound(playerSelection, computerSelection);
+function playGame() { //Create "game()" function to run 5 rounds and determine winner.
+    while ((computerScore < 3) && (playerScore < 3)) { //Loop function until either computer or player has 3 points. Loops while computerScore AND playerScore < 3.
+        playRound(playerSelection, computerSelection); //Calls single round function that compares "computerSelection" and "playerSelection" and returns result in a string
         if (computerScore === 2 && playerScore === 2) {
             alert("Tie breaker! Good luck!")
-        } else if (computerScore > 2) {
-            alert("Computer wins!"); i=1;
-        } else if (playerScore > 2) {
-            alert("You win!"); i=1;
-        }
-     i--;
-}
+        } else if (computerScore >= 3) {
+            alert("Computer wins!");
+        } else if (playerScore >= 3) {
+            alert("You win!");
+        } 
+    }
 
-    function playRound() { //Play each round.
+
+    function playRound() { 
 
         computerPlay(); //Calls function to randomly select computer's choice
 
@@ -63,18 +55,17 @@ function playGame() {
                         computerScore ++;
 
         } 
-        
-        
-
+    
     }
 
 }
 
 playGame();
 
+
         
         
      
     
 
-//Create "game()" function to run 5 rounds and determine winner.
+
